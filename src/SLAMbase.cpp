@@ -106,12 +106,6 @@ void frame2frameT(string firstF, string SecondF, cv::Mat & rvec, cv::Mat & tvec,
     C.fx = 222.6132;
     C.fy = 225.6439;
 
-    double camera_matrix_data[3][3] = {
-        {C.fx, 0, C.cx},
-        {0, C.fy, C.cy},
-        {0, 0, 1}
-    };
-    cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
 
 
 
@@ -232,7 +226,56 @@ void frame2frameT(string firstF, string SecondF, cv::Mat & rvec, cv::Mat & tvec,
 
 
     cout <<"good matches="<<goodMatches.size()<<endl;
+
+
+    // cv::Mat Ax = cv::Mat::zeros(176*144,2,CV_64F);
+    // cv::Mat Bx = cv::Mat::zeros(176*144,1,CV_64F);
+    // cv::Mat Ay = cv::Mat::zeros(176*144,2,CV_64F);
+    // cv::Mat By = cv::Mat::zeros(176*144,1,CV_64F);
+    // int idx = 0;
+    // for (int ww=0;ww<176;ww++){
+    //     for (int hh=0;hh<144;hh++){
+    //         cv::Point3f pd2;
+    //         pd2.x = depth2.at<double>(hh,ww,0);
+    //         pd2.y = depth2.at<double>(hh,ww,1);
+    //         pd2.z = -depth2.at<double>(hh,ww,2);
+
+    //         Ax.at<double>(idx,1) = 1.0;
+    //         Ay.at<double>(idx,1) = 1.0;
+
+    //         Ax.at<double>(idx,0) = pd2.x/pd2.z;
+    //         Ay.at<double>(idx,0) = pd2.y/pd2.z;
+
+    //         Bx.at<double>(idx,0) = ww;
+    //         By.at<double>(idx,0) = hh;
+    //         idx++;
+    //     }
+
+    // }
+
+    // cv::Mat fx_cx,fy_cy;
+    // cv::solve(Ax,Bx,fx_cx,DECOMP_SVD);
+    // cv::solve(Ay,By,fy_cy,DECOMP_SVD);
+
+    // cout << fx_cx<<fy_cy<<endl;
+    // C.cx = fx_cx.at<double>(1,0);
+    // C.fx = fx_cx.at<double>(0,0);
+
+    // C.cy = fy_cy.at<double>(1,0);
+    // C.fy = fy_cy.at<double>(0,0);
+    C.cx = 87.5122;
+    C.cy = 71.4732;
+    C.fx = 222.7264;
+    C.fy = 225.6077;
+
 /*==============================================================================*/
+    double camera_matrix_data[3][3] = {
+        {C.fx, 0, C.cx},
+        {0, C.fy, C.cy},
+        {0, 0, 1}
+    };
+    cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
+    // cout <<"cameraMatrix"<<endl<<cameraMatrix<<endl<<endl;
 
     // cv::Mat rvec, tvec, inliers;
     cv::Mat inliers;
@@ -299,9 +342,6 @@ void frame2frameT(string firstF, string SecondF, cv::Mat & rvec, cv::Mat & tvec,
             cout  << "(pd1-pd2) "<< norm(pd1-pd2)*1000 <<"mm" <<endl;
             cout  << "(pd1*T-pd2) "<< norm(projPd1-pd2)*1000 <<"mm"<<endl<<endl;
         }
-
-
-
         
         // sumError = sumError + norm(projPd1-pd2)*1000;
         countN++;
@@ -349,7 +389,7 @@ void frame2frameT(string firstF, string SecondF, cv::Mat & rvec, cv::Mat & tvec,
         pitch = atan2(-R.at<double>(2,0), sy);
         yaw = atan2(R.at<double>(1,0), R.at<double>(0,0));
 
-        cout  << "Good solvePnPRansac inlier  roll "<< roll <<" ; pitch " <<pitch<<" ; yaw "<<endl<<yaw<<endl;
+        cout  << "Good PnPRansac inlier  roll "<< roll <<" ; pitch " <<pitch<<" ; yaw "<<endl<<yaw<<endl;
 
 
         //3d-3d=============================================================================
