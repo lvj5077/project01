@@ -20,9 +20,9 @@ int main( int argc, char** argv )
 {
 
     // /home/jin/Data/RV_Data/Pitch/d1_-40/d1_0001.dat
-    // /home/jin/Data/RV_Data/Pitch/d2_-107/d2_0001.dat
-    // /home/jin/Data/RV_Data/Pitch/d10_-104/d10_0001.dat
-    // /home/jin/Data/RV_Data/Pitch/d4_-101/d4_0001.dat
+    // /home/jin/Data/RV_Data/Pitch/d2_-37/d2_0001.dat
+    // /home/jin/Data/RV_Data/Pitch/d10_-34/d10_0001.dat
+    // /home/jin/Data/RV_Data/Pitch/d4_-31/d4_0001.dat
 
 
 
@@ -38,7 +38,7 @@ int main( int argc, char** argv )
     // /home/jin/Data/RV_Data/Translation/Y4/frm_0001.dat
 
     string firstF = "/home/jin/Data/RV_Data/Pitch/d1_-40/d1_0044.dat";
-    string secondF = "/home/jin/Data/RV_Data/Pitch/d1_-40/d1_0042.dat";
+    string secondF = "/home/jin/Data/RV_Data/Pitch/d2_-37/d2_0042.dat";
     cv::Mat rvec;
     cv::Mat tvec;
     cv::Mat rpy=cv::Mat::zeros(3,1,CV_64F);;

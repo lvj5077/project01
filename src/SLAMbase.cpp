@@ -432,7 +432,7 @@ void frame2frameT(string firstF, string SecondF, cv::Mat & rvec, cv::Mat & tvec,
         rpy.at<double>(0,0) = roll;
         rpy.at<double>(1,0) = pitch;
         rpy.at<double>(2,0) = yaw;
-
+        tvecN = Tm(cv::Rect(3,0,1,3));
         /*reprojection error*/
         sumDistG = 0;
         sumErrorG = 0;
