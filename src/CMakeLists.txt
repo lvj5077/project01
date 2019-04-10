@@ -4,15 +4,15 @@ ADD_EXECUTABLE( main main.cpp)
 
 
 
-# SET("PCL_DIR" "/home/jin/Third_party_packages/pcl-pcl-1.9.1/build")
-FIND_PACKAGE( PCL REQUIRED COMPONENTS common io visualization filters )
-list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4") # use this in Ubuntu 16.04
-ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
-INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
-LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
+# # SET("PCL_DIR" "/home/jin/Third_party_packages/pcl-pcl-1.9.1/build")
+# FIND_PACKAGE( PCL REQUIRED COMPONENTS common io visualization filters )
+# list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4") # use this in Ubuntu 16.04
+# ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
+# INCLUDE_DIRECTORIES( ${PCL_INCLUDE_DIRS}  )
+# LINK_LIBRARIES( ${PCL_LIBRARY_DIRS} )
+INCLUDE_DIRECTORIES ("/usr/local/include/eigen3/")
 
-
-SET("OpenCV_DIR" "/home/jin/Third_party_packages/opencv-2.4.13.6/build")
+SET("OpenCV_DIR" "/Users/lingqiujin/Third_Party_Packages/opencv-2.4.13.6/build")
 find_package( OpenCV 2.4 REQUIRED )
 
 ADD_LIBRARY( SLAMbase SLAMbase.cpp )

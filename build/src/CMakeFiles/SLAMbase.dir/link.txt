@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../../lib/libSLAMbase.a  CMakeFiles/SLAMbase.dir/SLAMbase.cpp.o
-/usr/bin/ranlib ../../lib/libSLAMbase.a
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc ../../lib/libSLAMbase.a  CMakeFiles/SLAMbase.dir/SLAMbase.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib ../../lib/libSLAMbase.a
